@@ -73,6 +73,11 @@
      imx400@1a {
          compatible = "sony,imx400";
          reg = <0x1a>;
+         clocks = <&clock_camcc CAM_CC_MCLK0>;
+         clock-names = "mclk";
+         reset-gpios = <&tlmm 46 GPIO_ACTIVE_LOW>;
+         vdd-supply = <&pm8998_s3>;
+         vddio-supply = <&pm8998_s4>;
          status = "okay";
      };
  };
