@@ -19,6 +19,35 @@
          compatible = "sony,apollo-panel";
          reg = <0>;
          status = "okay";
+
+         qcom,mdss-dsi-panel-name = "apollo dsi panel";
+         qcom,mdss-dsi-panel-type = "dsi_video_mode";
+         qcom,mdss-dsi-panel-controller = <&dsi0>;
+         qcom,mdss-dsi-panel-framerate = <60>;
+
+         qcom,mdss-dsi-panel-width = <1080>;
+         qcom,mdss-dsi-panel-height = <2160>;
+         qcom,mdss-dsi-h-front-porch = <32>;
+         qcom,mdss-dsi-h-back-porch = <32>;
+         qcom,mdss-dsi-h-pulse-width = <8>;
+         qcom,mdss-dsi-v-front-porch = <8>;
+         qcom,mdss-dsi-v-back-porch = <8>;
+         qcom,mdss-dsi-v-pulse-width = <2>;
+
+         qcom,mdss-dsi-bpp = <24>;
+         qcom,mdss-dsi-clk-rate = <550000000>;
+         qcom,mdss-dsi-lane-map = <0 1 2 3>;
+
+         vdd-supply = <&pm8998_s4>;
+         vddio-supply = <&pm8998_s5>;
+         lab-supply = <&lab_reg>;
+         ibb-supply = <&ibb_reg>;
+
+         pinctrl-names = "default";
+         pinctrl-0 = <&dsi_te_gpio>;
+
+         qcom,mdss-dsi-reset-gpio = <&tlmm 89 0>;
+         qcom,mdss-dsi-te-gpio = <&tlmm 90 0>;
      };
  };
 
