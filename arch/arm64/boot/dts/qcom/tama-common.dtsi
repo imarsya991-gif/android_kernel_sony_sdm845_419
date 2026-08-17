@@ -1,0 +1,40 @@
+/dts-v1/;
+
+/ {
+    qcom,board-id = <1 0>;
+};
+
+&pm8998_regulators {
+    vdd_camera: regulator@1 {
+        compatible = "qcom,pm8998-regulator";
+        regulator-name = "vdd_camera";
+        status = "okay";
+    };
+
+    vdd_gpu: regulator@2 {
+        compatible = "qcom,pm8998-regulator";
+        regulator-name = "vdd_gpu";
+        status = "okay";
+    };
+};
+
+&soc {
+    gpio_keys {
+        compatible = "gpio-keys";
+        power {
+            label = "power";
+            gpios = <&tlmm 42 GPIO_ACTIVE_LOW>;
+            linux,code = <KEY_POWER>;
+        };
+        volume_up {
+            label = "volume_up";
+            gpios = <&tlmm 43 GPIO_ACTIVE_LOW>;
+            linux,code = <KEY_VOLUMEUP>;
+        };
+        volume_down {
+            label = "volume_down";
+            gpios = <&tlmm 44 GPIO_ACTIVE_LOW>;
+            linux,code = <KEY_VOLUMEDOWN>;
+        };
+    };
+};
